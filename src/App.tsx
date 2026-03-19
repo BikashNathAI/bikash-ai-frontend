@@ -19,8 +19,7 @@ function App() {
     setMessages(prev => [...prev, { role: "user", content: userMessage }]);
     setLoading(true);
     try {
-      const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3000";
-      const res = await fetch(`${API_URL}/chat`, {
+      const res = await fetch(`/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userMessage, sessionId }),
